@@ -1,0 +1,364 @@
+.horizondiv {
+  visibility: hidden;
+  background: white;
+  opacity: 0.5;
+  height:2px;
+  width:0px;
+  position:relative;
+ }
+
+ .verticaldiv{
+  visibility: hidden;
+  background: white;
+  opacity: 0.5;
+  height: 0px;
+  width: 2px;
+  position: relative;
+ }
+
+ .ppdiv{
+  visibility: hidden;
+  float:left;
+  height: 200px;
+ }
+
+ div#parent1{
+  width: 60%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+ }
+
+ div#parent2{
+  width: 38%;
+ }
+
+ .condiv{
+  float: left;
+  height: 193px;
+  position: relative; 
+ }
+
+ 
+#header_div > div {
+  text-align: center;
+}
+
+#header_div p {
+  font-family:'arial';
+  color: white;
+  opacity: 0.8;
+}
+
+p#header_p1{
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  position: absolute;
+  opacity: 0;
+  top: 50px;
+  margin: 0 auto;
+  width: 100%;
+ }
+
+
+p#header_p2{
+  margin-top:10px;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  visibility: hidden;
+}
+
+div#header_div{
+  width: 70%;
+  height: 650px;
+  text-align: center;
+  margin:auto;
+  position: relative;
+ }
+
+div.pclass{
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+
+p.conp {
+  font-size: 15px;
+  position: absolute;
+  opacity: 0;
+  top: 20px;
+  visibility: hidden;
+}
+
+p#conp_1{
+  letter-spacing: 2px;
+  left: 35%;
+  line-height: 192px;
+}
+
+p#conp_2{
+  letter-spacing: 2px;
+  left: 25px;
+  line-height: 192px;
+}
+
+p#conp_3{
+  left:25%;
+  font-size: 15px;
+  position: absolute;
+  letter-spacing: 4px;
+  line-height: 140px;
+}
+
+button.header_button{
+  height: 50px;
+  display: block;
+  border: 2px solid white;
+  color: white;
+  border-radius: 10px;
+  background: transparent;
+  position:absolute;
+}
+
+button#conp1_b{
+  width: 150px;
+  margin-top: 100px;
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+button#conp2_b{
+  width: 100px;
+  margin-top: 110px;
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+
+
+p.conp_p1{
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: 40px;
+  position:absolute;  
+}
+
+p.conp_p2{
+  font-size: 15px;
+  margin-top: 60px;
+  margin-left: 40px;
+  position:absolute;
+}
+
+
+p#conp1_pp2, p#conp1_pp1{
+  margin-left: 40px;
+}
+
+
+@media screen and (max-width : 1400px) {
+  p#conp_2{
+    font-size:13px;
+    left:12px;
+  }
+}
+
+
+@media screen and (max-width : 1280px) {
+
+  p#conp_1{
+    left: 25%;
+  }
+
+  p#conp_2{
+    font-size: 12px;
+    left: 10px;
+  }
+
+  p.conp_p1{
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 10px;
+    position:absolute;  
+  }
+
+  p.conp_p2{
+    font-size: 13px;
+    margin-top: 60px;
+    margin-left: 10px;
+    position:absolute;
+  }
+  
+  p#conp_3{
+    left: 20%;
+  }
+
+  button.header_button{
+    height: 40px;
+  }
+
+}
+
+
+@media screen and (max-width : 890px) {
+
+  p#conp_2{
+    font-size: 10px;
+    left: 10px;
+    line-height: 12px;
+    margin-top: 100px;
+  }
+
+  p.conp_p1{
+    font-size: 12px;
+  }
+
+  p.conp_p2{
+    font-size: 10px;
+  }
+
+  p#conp_3{
+    left: 8%;
+  }
+
+  p#conp_1{
+    left: 18%;
+  }
+  
+  button.header_button{
+    height: 30px;
+  }
+
+
+  p#header_p1{
+    margin-left: 30%;
+  }
+}
+
+
+@media screen and (max-width : 650px) {
+
+  p#header_p1{
+    margin-left:30%;
+  }
+
+  p#header_p2{
+    font-size: 30px;
+  }
+
+  div#parent1, div#parent2{
+    width:100%;
+  }
+
+  div#parent1{
+    margin-top: 30px;
+  }
+ 
+  div.ppdiv{
+    height: 140px;
+  }
+
+  p#conp_3{
+    font-size:12px;
+    letter-spacing: 1px;
+  }
+
+  p#conp_1{
+    letter-spacing: 2px;
+    left:20%;
+    line-height: 100px;
+  }
+
+
+  p#conp_2{
+    left: 50px;
+    margin-top: 60px;
+  }
+ 
+ div.condiv{
+   height: 133px;
+ }
+
+
+ button#conp2_b {
+    width: 60px;
+    margin-top: 90px;
+    margin-left: 10px;
+    font-size: 13px;
+ }
+
+ button#conp1_b {
+    width: 100px;
+    margin-top: 85px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+ button.header_button {
+    height: 25px;
+ }
+
+ p#conp1_pp2, p#conp1_pp1{
+  margin-left: 10px;
+ }
+
+}
+
+
+
+div#top_head{
+  position: absolute;
+  top: 0;
+  border: none;
+  background:transparent;
+  width: 100%;
+  height:700px;
+}
+
+#mybgcarousel{ /* CSS for specific carousel container called #mybgcarousel. */
+width:100%;
+height:700px;
+}
+
+div.bgcarousel{ /* shared CSS for main carousel container */
+/* loading gif while caoursel is loading */
+}
+
+div.bgcarousel img.navbutton{
+ /* CSS for the nav buttons */
+ display: none;
+}
+
+div.bgcarousel div.slide{ /* CSS for each image's DIV container within main container */
+background-color: black;
+background-position: center center; /* center image within carousel */
+background-repeat: no-repeat;
+background-size: cover; /* CSS3 property to scale image within container? "cover" or "contain" */
+color: black;
+}
+
+div.bgcarousel div.selectedslide{ /* CSS for currently selected slide */
+}
+
+div.bgcarousel div.slide div.desc{ /* DIV that contains the textual description inside .slide */
+position: absolute;
+color: white;
+left: 40px;
+top: 100px;
+width:200px;
+padding: 10px;
+font: bold 16px sans-serif, Arial;
+text-shadow: 0 -1px 1px #8a8a8a; /* CSS3 text shadow */
+z-index:5;
+}
+
+div.bgcarousel div.selectedslide div.desc{ /* CSS for currently selected slide's desc div */
+}
+
+div.bgcarousel div.slide div.desc a{
+color:yellow;
+text-decoration:none;
+}
+
