@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg width="100%" height="220px"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   onload="startUp()"
+   viewport="0 0 1600 220"
+>
+
+<script>
+var w = screen.width;
+<![CDATA[
+
+var xmlns="http://www.w3.org/2000/svg";
+var xlinkns = "http://www.w3.org/1999/xlink"; 
+
+
+var t = 0;
+
+// wave parameters
+var f = 0.1;
+var lambda = 4;
+var k;
+var omega;
+
+// string geometry
+var ym = 1;
+
+
+var xLength = w/100;
+
+// drawing variables
+var Scale = 100.0;
+var st;
+var end;
+var nPoints = 360; 
+
+var nRatio = 45;
+
+if(xLength < 8)
+nRatio=120;
+
+var nAmps = nPoints/nRatio;
+
+var amps = new Array(nAmps);
+var bmps = new Array(nAmps);
+
+// time interval
+var Tinc=10;
+
+function startUp() 
+{	
+	for(var i=0;i<nAmps-1;i++) {
+		amps[i] = document.createElementNS(xmlns,"circle");
+		amps[i].setAttributeNS(null,"r","6");
+		amps[i].setAttributeNS(null,"fill","#A6F7FF");
+		amps[i].setAttributeNS(null,"stroke","#A6F7FF");
+		amps[i].setAttributeNS(null,"stroke-width","3");
+		document.getElementById("WaveGroup").appendChild(amps[i]);
+
+		bmps[i] = document.createElementNS(xmlns,"circle");
+		bmps[i].setAttributeNS(null,"r","6");
+		bmps[i].setAttributeNS(null,"fill","#4F53C4");
+		bmps[i].setAttributeNS(null,"stroke","#4F53C4");
+		bmps[i].setAttributeNS(null,"stroke-width","3");
+		document.getElementById("WaveGroup").appendChild(bmps[i]);
+	}
+	
+	st = document.getElementById("st");
+	end = document.getElementById("end")	
+
+	setParams();
+	setInterval("motion()",Tinc)
+}
+
+function setParams()
+{
+	k = 2*Math.PI/lambda;
+	omega = 2*Math.PI*f;
+	//Tinc = 1/f*1000/10;
+	t = 0.0;
+	
+}
+
+function motion()
+{
+	var swString1 = "";
+	var swString2 = "";
+
+	var cxString = "";
+	var cy1String = "";
+	var cy2String = "";
+
+	iamps = 0;
+
+	for (var i=0;i<nPoints;i++) {
+		var X = i*xLength/(nPoints-1);
+		//var Y1 = ym/2*(Math.cos(2*omega*t)*Math.sin(1.3*k*X+omega*t))+ym/3*Math.cos(omega*t+4)*Math.sin(k*X-omega*t+Math.PI*0.3)+2;
+		//var Y2 = ym/2*(Math.cos(omega*t*0.3)*Math.sin(1.3*k*X-omega*t)-Math.cos(omega*t)*Math.sin(k*X+omega*t+Math.PI*0.3))+2;
+		
+		var Y1 = ym/2*(Math.cos(1.3*k*X-3*omega*t)+Math.cos(k*X-1.5*omega*t))+2;
+		var Y2 = ym/2*(Math.sin(k*X-2.5*omega*t)+Math.sin(1.4*k*X-2*omega*t))+2;
+
+
+		var j = i % nRatio;
+
+		if((j == 0) && (X !=0 )) {
+			//alert("nAmps="+nAmps+" i="+i);
+			cxString=X*Scale;
+			cy1String=Y1*Scale;
+			cy2String=Y2*Scale;
+
+			amps[iamps].setAttributeNS(null,"cx",cxString);
+			amps[iamps].setAttributeNS(null,"cy",cy1String);
+
+			bmps[iamps].setAttributeNS(null,"cx",cxString);
+			bmps[iamps].setAttributeNS(null,"cy",cy2String);
+
+			iamps++;
+		}
+		
+		if(i==0) {
+			swString1 ="M"+X*Scale+","+Y1*Scale;
+			swString2 ="M"+X*Scale+","+Y2*Scale;
+			
+		}
+		else if(i>0) {
+			swString1 += " L"+ Math.round(X*Scale)+","+Math.round(Y1*Scale);
+			swString2 += " L"+ Math.round(X*Scale)+","+Math.round(Y2*Scale);
+		}
+	}
+	 
+	document.getElementById("standingWave1").setAttributeNS(null,"d",swString1);
+	document.getElementById("standingWave2").setAttributeNS(null,"d",swString2);
+
+	t += Tinc/1000;
+}
+
+
+]]>
+
+</script>
+
+
+<defs>
+	<style>
+		.cls-1{fill:url(#ling1);}
+		.cls-2{fill:url(#ling2);}
+	</style>
+	
+	<linearGradient id="ling1" x1="0%" y1="100%" x2="0%" y2="70%">
+		<stop offset="0" stop-color="#fff" stop-opacity="0"/>
+		<stop offset="0.24" stop-color="#faffff" stop-opacity="0.06"/>
+		<stop offset="0.34" stop-color="#d6fbff" stop-opacity="0.05"/>
+		<stop offset="0.61" stop-color="#bcf9ff" stop-opacity="0.04"/>
+		<stop offset="0.84" stop-color="#acf8ff" stop-opacity="0.03"/>
+		<stop offset="1" stop-color="#a6f7ff" stop-opacity="0"/>
+	</linearGradient>
+
+
+	<linearGradient id="ling2" x1="0%" y1="0%" x2="0%" y2="100%" >
+		<stop offset="0" stop-color="#4f53c4" stop-opacity="0"/>
+		<stop offset="0.24" stop-color="#f7f7f7" stop-opacity="0.06"/>
+		<stop offset="0.46" stop-color="#dddef4" stop-opacity="0.05"/>
+		<stop offset="0.67" stop-color="#b3b4e5" stop-opacity="0.04"/>
+		<stop offset="0.88" stop-color="#777ad2" stop-opacity="0.03"/>
+		<stop offset="1" stop-color="#fff" stop-opacity="0"/>
+	</linearGradient>
+	
+</defs>
+
+<g>
+ <g id="WaveGroup" transform="translate(0 -90)">
+  <path class="cls-1" id="standingWave1" stroke="#A6F7FF" stroke-width="4" fill="none"/>
+  <path class="cls-2" id="standingWave2" stroke="#4F53C4" stroke-width="4" fill="none"/>
+ </g>
+</g>
+
+</svg>
